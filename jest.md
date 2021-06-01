@@ -1,4 +1,4 @@
-# How to Set Up a Simple Jest Test (without Cucumber):
+# How to Set Up a Pure Jest Test (without Cucumber):
 
 This document was mostly following this tutorial ( https://jestjs.io/docs/getting-started ). The tutorial is very complete and worth reading.  
 
