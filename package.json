@@ -1,5 +1,9 @@
 {
-"scripts": {
-    "test": "jest"
-  }
+    "scripts": {
+        "jest": "jest",
+        "cucumber": "cucumber-js ./features -r ./stepdefs"
+    },
+    "devDependencies": {
+        "cucumber": "^7.0.0-rc.0"
+    }
 }
