@@ -26,7 +26,7 @@ Or install Jest globally:
 npm install jest --global
 ```
 
-
+**Note**: if we need to install cucumber AND jest in the same root, we might need to install them globally; otherwise somehow one of them will fail.
 
 ## Create a function to be tested
 
