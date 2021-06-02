@@ -1,5 +1,5 @@
 Feature: addition
-this is a sample test
+    this is a sample test
 
 Scenario: 1 + 2
     Given I have some numbers

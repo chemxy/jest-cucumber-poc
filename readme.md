@@ -1,3 +1,19 @@
+##  Jest vs Cucumber.js
+
+Both are testing JavaScript code. 
+
+But:
+
+- `Jest`: more like a JUnit testing (aimed for unit testing).
+
+- `Cucumber.js`: more like an end-to-end / acceptance testing with test scenarios.
+
+- `jest-cucumber` & `cucumber-jest` are open-source packages on GitHub - should be careful when we use them. may need to ask for Jason.
+
+we could use combination of Jest and Cucumber, or directly use Cucumber.js.
+
+
+
 # How to Set Up a Pure Jest Test (without Cucumber):
 
 This document was mostly following this tutorial ( https://jestjs.io/docs/getting-started ). The tutorial is very complete and worth reading.  
