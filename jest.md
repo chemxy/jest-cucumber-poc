@@ -247,3 +247,16 @@ describe('outer', () => {
 
 
 
+# Set up a Cucumber.js test
+
+Tutorial for non-web app testing : 
+
+https://www.sitepoint.com/bdd-javascript-cucumber-gherkin/
+
+https://stackoverflow.com/questions/46898573/using-cucumber-js-with-jest
+
+
+
+Tutorial for web app testing : 
+
+https://www.testim.io/blog/cucumber-js-for-bdd-an-introductory-tutorial-with-examples/
