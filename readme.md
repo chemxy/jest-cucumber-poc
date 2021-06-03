@@ -1,4 +1,4 @@
-##  Jest vs Cucumber.js
+#  Before: Jest vs Cucumber.js
 
 Both are testing JavaScript code. 
 
@@ -11,6 +11,22 @@ But:
 - `jest-cucumber` & `cucumber-jest` are open-source packages on GitHub - should be careful when we use them. may need to ask for Jason.
 
 we could use combination of Jest and Cucumber, or directly use Cucumber.js.
+
+
+
+# Before: Create a function to be tested
+
+ Create a `sum.js` file:
+
+``` javascript
+function sum(a, b) {
+    return a + b;
+}  
+  
+module.exports = sum;
+```
+
+**Note**: Personally I think it is essential to export the function you want to test as a module so the function can be reached by a file outside.
 
 
 
@@ -44,20 +60,6 @@ npm install jest --global
 
 **Note**: if we need to install cucumber AND jest in the same root, we might need to install them globally; otherwise somehow one of them will fail.
 
-## Create a function to be tested
-
- Create a `sum.js` file:
-
-``` javascript
-function sum(a, b) {
-    return a + b;
-}  
-  
-module.exports = sum;
-```
-
-**Note**: Personally I think it is essential to export the function you want to test as a module so the function can be reached by a file outside.
-
 
 
 ## Create a test
@@ -82,7 +84,7 @@ This test used `expect` and `toBe` to test that two values were exactly identica
 
 
 
-## Configuration file (I guess it is)
+## Configuration file
 
 Create a file named `package.json` and add the following section:
 
@@ -265,7 +267,120 @@ describe('outer', () => {
 
 # Set up a Cucumber.js test
 
-To be continued
+
+
+## Install cucumber.js
+
+install cucumber framework using `npm`:
+
+```
+npm i -D @cucumber/cucumber
+```
+
+
+
+or 
+
+````
+npm install cucumber --global
+````
+
+
+
+## Create features and step definitions
+
+create a folder named `features` to contain out feature files. 
+
+
+
+go to the `features` folder and create a feature file named `sample-test.feature`
+
+
+
+add the following scenario:
+
+```gherkin
+Feature: addition
+    this is a sample test
+
+Scenario: 1 + 2
+    Given I have some numbers
+    When I calculate the sum of 1 and 2
+    Then I get 3
+```
+
+
+
+return to the root folder and create a folder named `stepdefs` to contain out step definitions.
+
+
+
+go to the `stepdefs`folder and create a javascript file named `stepdef.js` and add the following code:
+
+```javascript
+const { Given, When, Then } = require("@cucumber/cucumber"); // import gherkin
+const assert = require('assert');	//import assertion
+
+const sum = require('../sum');	//import the function we want to test
+
+let result = 0;	//init a global variable to store result
+
+Given('I have some numbers', function () {
+    //always true
+});
+When('I calculate the sum of {int} and {int}', function (num1, num2) {
+    result = sum(num1, num2);
+});
+Then('I get {int}', function (expected) {
+    assert.equal(result, expected);
+});
+```
+
+
+
+## Run tests
+
+we can directly run tests on command line, or we can include the command in the script like this:
+
+add the script in your `package.json` configuration file:
+
+```json
+"scripts": {
+  "cucumber": "cucumber.js ./myFeatures -r ./mySteps"
+}
+```
+
+
+
+then we can run the command `npm run cucumber` on the console and this will result in the following result:
+
+```bash
+PS E:\Github\jest-cucumber-poc> npm run cucumber
+
+> @ cucumber E:\Github\jest-cucumber-poc
+> cucumber-js ./features -r ./stepdefs  
+
+...
+
+1 scenario (1 passed)
+3 steps (3 passed)
+0m00.010s (executing steps: 0m00.003s)
+┌──────────────────────────────────────────────────────────────────────────┐
+│ Share your Cucumber Report with your team at https://reports.cucumber.io │
+│                                                                          │
+│ Command line option:    --publish                                        │
+│ Environment variable:   CUCUMBER_PUBLISH_ENABLED=true                    │
+│                                                                          │
+│ More information at https://reports.cucumber.io/docs/cucumber-js         │
+│                                                                          │
+│ To disable this message, add this to your ./cucumber.js:                 │
+│ module.exports = { default: '--publish-quiet' }                          │
+└──────────────────────────────────────────────────────────────────────────┘
+```
+
+
+
+## Some tutorials
 
 Tutorial for non-web app testing : 
 
@@ -280,3 +395,8 @@ https://github.com/cucumber/cucumber-js/blob/main/docs/nodejs_example.md
 Tutorial for web app testing : 
 
 https://www.testim.io/blog/cucumber-js-for-bdd-an-introductory-tutorial-with-examples/
+
+
+
+
+
