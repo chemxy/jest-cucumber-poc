@@ -1,3 +1,22 @@
+# Table of Content
+
+- [Before: Jest vs Cucumber.js](#Before: Jest vs Cucumber.js) 
+- [Before: Create a function to be tested](#Before: Create a function to be tested)
+- [Set Up a Pure Jest Test (without Cucumber):](#Set Up a Pure Jest Test (without Cucumber):)
+  - [Install Jest](#Install Jest)
+  - [Create a test](#Create a test)
+  - [Configuration file](#Configuration file)
+  - [Run tests](#Run tests)
+  - [Test Asynchronous Code](#Test Asynchronous Code)
+  - [Setup & Teardown](#Setup & Teardown)
+  - [Order of Execution](#Order of Execution of  and  blocks)
+- [Set up a Pure Cucumber.js test](#Set up a Pure Cucumber.js test)
+  - [Install cucumber.js](#Install cucumber.js)
+  - [Create features and step definitions](#Create features and step definitions)
+  - [Run tests](#Run tests)
+
+
+
 #  Before: Jest vs Cucumber.js
 
 Both are testing JavaScript code. 
@@ -30,7 +49,7 @@ module.exports = sum;
 
 
 
-# How to Set Up a Pure Jest Test (without Cucumber):
+# Set Up a Pure Jest Test (without Cucumber):
 
 This document was mostly following this tutorial ( https://jestjs.io/docs/getting-started ). The tutorial is very complete and worth reading.  
 
@@ -134,7 +153,7 @@ I believe we will have to test lots of asynchronous code as we will be dealing w
 
 
 
-
+to be continued
 
 
 
@@ -265,7 +284,7 @@ describe('outer', () => {
 
 
 
-# Set up a Cucumber.js test
+# Set up a Pure Cucumber.js test
 
 
 
