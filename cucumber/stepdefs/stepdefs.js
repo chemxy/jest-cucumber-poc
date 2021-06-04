@@ -1,7 +1,7 @@
 const { Given, When, Then } = require("@cucumber/cucumber");
 const assert = require('assert');
 
-const sum = require('../sum');
+const sum = require('../../src/sum');
 
 let result = 0;
 

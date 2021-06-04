@@ -1,7 +1,7 @@
 {
     "scripts": {
         "jest": "jest",
-        "cucumber": "cucumber-js ./features -r ./stepdefs"
+        "cucumber": "cucumber-js ./cucumber/features -r ./cucumber/stepdefs"
     },
     "devDependencies": {
         "cucumber": "^7.0.0-rc.0"
